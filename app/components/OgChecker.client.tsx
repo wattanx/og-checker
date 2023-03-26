@@ -26,7 +26,8 @@ export const OgChecker: React.FC = () => {
   const onCheck = async () => {
     try {
       schema.parse(url);
-      const res = await fetch(url);
+
+      const res = await fetch(`/api/og_checker?url=${url}`);
       const htmlString = await res.text();
 
       const metaField = metaFieldParser(htmlString);
