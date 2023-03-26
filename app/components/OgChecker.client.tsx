@@ -17,7 +17,8 @@ export const OgChecker: React.FC = () => {
   const [url, setUrl] = useState("");
   const [meta, setMeta] = useState<MetaFieldType>();
   const [hostname, setHostname] = useState("");
-  const { toastShown, toastMessage, showToast } = useToast();
+  const [isLocalhost, setIsLocalhost] = useState(false);
+  const { toastShown, showToast } = useToast();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value);
@@ -27,7 +28,9 @@ export const OgChecker: React.FC = () => {
     try {
       schema.parse(url);
 
-      const res = await fetch(`/api/og_checker?url=${url}`);
+      const res = isLocalhost
+        ? await fetch(url)
+        : await fetch(`/api/og_checker?url=${url}`);
       const htmlString = await res.text();
 
       const metaField = metaFieldParser(htmlString);
@@ -58,13 +61,26 @@ export const OgChecker: React.FC = () => {
         }}
       >
         <p>Please enter the URL.</p>
-        <div>
+
+        <div className=" space-y-2">
           <input
             className="peer w-full rounded-md border-[1px] border-gray-500 bg-gray-900 py-2 px-4 outline-none invalid:border-[#FC8181]"
             type="url"
             onChange={onChange}
             placeholder="https://"
           />
+          <div className="flex justify-start space-x-2">
+            <input
+              id="localhost"
+              type="checkbox"
+              className=""
+              checked={isLocalhost}
+              onChange={(e) => {
+                setIsLocalhost(e.target.checked);
+              }}
+            />
+            <label htmlFor="localhost">localhost</label>
+          </div>
           <p className=" invisible text-[#FC8181] peer-invalid:visible">
             Invalid format.
           </p>

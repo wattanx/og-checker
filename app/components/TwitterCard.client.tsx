@@ -17,7 +17,7 @@ export const TwitterCard: React.FC<TwitterCardProps> = ({
       className={`flex w-full max-w-[505px] flex-col overflow-hidden rounded-[16px] border-[1px] border-[#38444d]`}
     >
       <div
-        className="h-[254px] w-[506px] bg-cover bg-center"
+        className="h-[254px] w-[506px] border-b-[1px] border-b-[#38444d] bg-cover bg-center"
         style={{
           backgroundImage: `url('${ogImage}')`,
         }}

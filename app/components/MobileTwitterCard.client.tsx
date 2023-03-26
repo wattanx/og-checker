@@ -15,7 +15,7 @@ export const MobileTwitterCard: React.FC<TwitterCardProps> = ({
       className={`flex w-full max-w-[399px] flex-col overflow-hidden rounded-[16px] border-[1px] border-[#38444d]`}
     >
       <div
-        className="bg-cover bg-center pb-[52.356%]"
+        className="border-b-[1px] border-b-[#38444d] bg-cover bg-center pb-[52.356%]"
         style={{
           backgroundImage: `url('${ogImage}')`,
         }}
