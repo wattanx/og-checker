@@ -12,6 +12,7 @@ import { useToast } from "@/dataflow/toast";
 import { Toast } from "./Toast.client";
 
 const schema = z.string().url();
+const isDev = process.env.NODE_ENV === "development";
 
 export const OgChecker: React.FC = () => {
   const [url, setUrl] = useState("");
@@ -69,18 +70,20 @@ export const OgChecker: React.FC = () => {
             onChange={onChange}
             placeholder="https://"
           />
-          <div className="flex justify-start space-x-2">
-            <input
-              id="localhost"
-              type="checkbox"
-              className=""
-              checked={isLocalhost}
-              onChange={(e) => {
-                setIsLocalhost(e.target.checked);
-              }}
-            />
-            <label htmlFor="localhost">localhost</label>
-          </div>
+          {isDev && (
+            <div className="flex justify-start space-x-2">
+              <input
+                id="localhost"
+                type="checkbox"
+                className=""
+                checked={isLocalhost}
+                onChange={(e) => {
+                  setIsLocalhost(e.target.checked);
+                }}
+              />
+              <label htmlFor="localhost">localhost</label>
+            </div>
+          )}
           <p className=" invisible text-[#FC8181] peer-invalid:visible">
             Invalid format.
           </p>
