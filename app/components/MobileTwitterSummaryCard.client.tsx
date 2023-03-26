@@ -1,26 +1,26 @@
 "use client";
 
-export type TwitterCardProps = {
+export type TwitterSummaryCardProps = {
   ogImage: string;
   ogTitle: string;
   hostname: string;
 };
-export const MobileTwitterCard: React.FC<TwitterCardProps> = ({
+export const MobileTwitterSummaryCard: React.FC<TwitterSummaryCardProps> = ({
   ogImage,
   ogTitle,
   hostname,
 }) => {
   return (
     <div
-      className={`flex w-full max-w-[399px] flex-col overflow-hidden rounded-[16px] border-[1px] border-[#38444d]`}
+      className={`flex max-h-[125px] w-full max-w-[340px] flex-row overflow-hidden rounded-[16px] border-[1px] border-[#38444d]`}
     >
       <div
-        className="bg-cover bg-center pb-[52.356%]"
+        className="h-[78px] w-[78px] bg-cover bg-center"
         style={{
           backgroundImage: `url('${ogImage}')`,
         }}
       ></div>
-      <div className="p-[11px]">
+      <div className="max-w-[262px] space-y-1 p-[11px]">
         <p className="text-sm text-[#8b98a5]">{hostname}</p>
         <p className=" text-sm">{ogTitle}</p>
       </div>

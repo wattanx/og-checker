@@ -1,5 +1,7 @@
 "use client";
 
+import { GitHubIcon } from "./components/GitHubIcon.client";
+
 export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-[99] bg-gray-900 py-4 px-0">
@@ -7,6 +9,9 @@ export const Header: React.FC = () => {
         <div className="flex flex-row items-center justify-between font-bold">
           <a href="/" className="items-center no-underline">
             OG Checker
+          </a>
+          <a href="https://github.com/wattanx/og-checker" target="_blank">
+            <GitHubIcon />
           </a>
         </div>
       </div>

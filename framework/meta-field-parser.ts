@@ -28,9 +28,8 @@ export const metaFieldParser = (htmlString: string): MetaFieldType => {
       .querySelector('meta[property="og:site_name"]')
       ?.getAttribute("content") ?? "";
   const twitterCard =
-    dom
-      .querySelector('meta[property="twitter:card"]')
-      ?.getAttribute("content") ?? "";
+    dom.querySelector('meta[name="twitter:card"]')?.getAttribute("content") ??
+    "";
   const twitterSite =
     dom
       .querySelector('meta[property="twitter:site"]')

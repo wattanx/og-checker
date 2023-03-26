@@ -62,7 +62,32 @@ module.exports = {
       body: `-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
       mono: `SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
     },
-    extend: {},
+    extend: {
+      animation: {
+        "slide-in-down":
+          "slide-in-down 0.3s cubic-bezier(0, 0, 0, 1.5) forwards",
+        "slide-out-up":
+          "slide-out-up 0.3s cubic-bezier(0, 0, 1, -0.5) forwards",
+      },
+      keyframes: {
+        "slide-in-down": {
+          from: {
+            transform: "translate3d(0, 0, 0)",
+          },
+          to: {
+            transform: "translate3d(0, -30%, 0)",
+          },
+        },
+        "slide-out-up": {
+          from: {
+            transform: "translate3d(0, -100%, 0)",
+          },
+          to: {
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 };
