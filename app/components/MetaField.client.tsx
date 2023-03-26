@@ -30,7 +30,7 @@ export const MetaField: React.FC<MetaFieldProps> = (props) => {
         {metaFieldKeys.map((x) => (
           <tr key={x}>
             <td className="px-4 py-2">{labelDic[x]}</td>
-            <td className="px-4 py-2">{props[x]}</td>
+            <td className=" px-4 py-2">{props[x]}</td>
           </tr>
         ))}
       </tbody>
