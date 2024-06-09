@@ -30,8 +30,8 @@ export const OgChecker: React.FC = () => {
       schema.parse(url);
 
       const res = isLocalhost
-        ? await fetch(url)
-        : await fetch(`/api/og_checker?url=${url}`);
+        ? await fetch(url, { cache: "no-store" })
+        : await fetch(`/api/og_checker?url=${url}`, { cache: "no-store" });
       const htmlString = await res.text();
 
       const metaField = metaFieldParser(htmlString);
